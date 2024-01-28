@@ -7,14 +7,14 @@ const doctorSchema = require("../model/doctorSchema.js");
 
 
 clientRoute.post('/signup', async (req, res) => {
-    const {username,password,email,phone,qualification,institutionName,fieldName,graduationYear,workStatus,skills,resume,linkedinProfile} = req.body;
+    const {username,password,email,phone,age,hospitalName,birthYear,healthStatus,symptoms} = req.body;
     try {
       const client = await clientSchema.findOne({$or: [{ username }, { email }],});
       if (client) {
         return res.status(400).json({ message: "Exists" });
       }
       const hashedPassword = await bcrypt.hash(password, 10);
-      clientSchema.create({username,password: hashedPassword,email,phone,qualification,institutionName,fieldName,graduationYear,workStatus,skills,resume,linkedinProfile},(err,data)=>{
+      clientSchema.create({username,password: hashedPassword,email,phone,age,hospitalName,birthYear,healthStatus,symptoms},(err,data)=>{
         if(err){
             console.log(err);
             return err;

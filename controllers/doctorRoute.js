@@ -62,14 +62,14 @@ doctorRoute.get('/allDoctorIds', async (req, res) => {
 });
 
 doctorRoute.post('/signup', async (req, res) => {
-    const {username,password,email,phone,company} = req.body;
+    const {username,password,email,phone,hospital} = req.body;
     try {
       const doctor = await doctorSchema.findOne({$or: [{ username }, { email }],});
       if (doctor) {
         return res.status(400).json({ message: "Exists" });
       }
       const hashedPassword = await bcrypt.hash(password, 10);
-      doctorSchema.create({username,password: hashedPassword,email,phone,company},(err,data)=>{
+      doctorSchema.create({username,password: hashedPassword,email,phone,hospital},(err,data)=>{
         if(err){
             return err;
         }
@@ -129,7 +129,7 @@ doctorRoute.post('/signup', async (req, res) => {
         location: formData.location,
         jobMode: formData.jobMode,
         salary: formData.salary,
-        skills: formData.skills.split(','), 
+        symptoms: formData.symptoms.split(','), 
         description: formData.jobDescription,
         hrId:doctorId,
       });

@@ -4,14 +4,11 @@ const clientSchema=new mongoose.Schema({
     "password":{type:String},
     "email":{type:String},
     "phone":{type:String},
-    "qualification":{type:String},
-    "institutionName":{type:String},
-    "fieldName":{type:String},
-    "graduationYear":{type:Number},
-    "workStatus":{type:String},
-    "skills":{type:[String]},
-    "resume":{type:Object},
-    "linkedinProfile":{type:String},
+    "age":{type:String},
+    "hospitalName":{type:String},
+    "birthYear":{type:Number},
+    "healthStatus":{type:String},
+    "symptoms":{type:[String]},
     "country":{type:String},
     "state":{type:String},
     "city":{type:String},
@@ -19,7 +16,7 @@ const clientSchema=new mongoose.Schema({
     "applied":{type:Number},
     "shortlisted":{type:Number},
     "rejected":{type:Number},
-    "jobsApplied":{type:[{
+    "cases":{type:[{
         "jobId":{type:String},
         "userId":{type:String},
     }]}

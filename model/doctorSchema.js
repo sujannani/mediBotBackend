@@ -4,24 +4,24 @@ const doctorSchema=new mongoose.Schema({
     "password":{type:String},
     "email":{type:String},
     "phone":{type:String},
-    "company":{type:String},
+    "hospital":{type:String},
     "country":{type:String},
     "state":{type:String},
     "city":{type:String},
     "accepted":{type:Number},
     "rejected":{type:Number},
     "shortlisted":{type:Number},
-    "applicationsPosted":{type:[{
+    "prescriptionssPosted":{type:[{
         "title":{type:String},
         "role":{type:String},
         "location":{type:String},
         "jobMode":{type:String},
         "salary":{type:Number},
-        "skills":{type:[String]},
+        "symptoms":{type:[String]},
         "description":{type:String},
         "hrId":{type:String},
     }]},
-    "applicationsReceived":{type:[{
+    "casessReceived":{type:[{
         "jobId":{type:String},
         "userId":{type:String},
         "username":{type:String},
